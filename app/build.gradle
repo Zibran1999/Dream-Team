@@ -1,5 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -11,8 +14,8 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -25,6 +28,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildToolsVersion '32.1.0 rc1'
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -33,6 +40,63 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //analytics & Crash Analytics
+    implementation platform('com.google.firebase:firebase-bom:29.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
+    // OneSignal
+    implementation 'com.onesignal:OneSignal:4.7.0'
+
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    implementation 'com.airbnb.android:lottie:5.0.3'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
+
+    // Admob
+    implementation 'com.google.android.gms:play-services-ads:20.6.0'
+    implementation 'com.google.ads.mediation:facebook:6.8.0.0'
+
+    implementation 'com.google.android.play:core:1.10.3'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.8.0'
+    implementation 'com.github.bfrachia:android-image-cropper:2.7.0'
+
+    implementation 'io.github.pilgr:paperdb:2.7.2'
+
+    // IronSource
+    implementation 'com.ironsource.sdk:mediationsdk:7.2.1'
+
+    // Add Facebook Network
+    implementation 'com.ironsource.adapters:facebookadapter:4.3.34'
+    implementation 'com.facebook.android:audience-network-sdk:6.8.0'
+
+
+    /*test */
+//    implementation 'com.google.android.ads:mediation-test-suite:2.0.0'
+    // open app ads
+    def lifecycle_version = '2.4.1'
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
