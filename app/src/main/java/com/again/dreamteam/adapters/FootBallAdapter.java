@@ -143,7 +143,7 @@ public class FootBallAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
             }).build();
 
-            adLoader.loadAd(new AdRequest.Builder().build());
+//            adLoader.loadAd(new AdRequest.Builder().build());
 
         }
 

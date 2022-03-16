@@ -64,7 +64,6 @@ public class MyHomeActivity extends AppCompatActivity implements NavigationView.
     SectionsPagerAdapter sectionsPagerAdapter;
     LottieAnimationView lottieAnimationView, whatsappLottie;
     int count = 1;
-    public static int adcount=1;
     TextView versionCode;
     private ActivityMyHomeBinding binding;
     public BroadcastReceiver MyReceiver = new BroadcastReceiver() {
@@ -119,13 +118,14 @@ public class MyHomeActivity extends AppCompatActivity implements NavigationView.
         }
 
         whatsappLottie = findViewById(R.id.lottie_whatsapp);
-        whatsappLottie.setOnClickListener(view -> {
-            try {
-                whatsApp();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        });
+        whatsappLottie.setVisibility(View.GONE);
+//        whatsappLottie.setOnClickListener(view -> {
+//            try {
+//                whatsApp();
+//            } catch (UnsupportedEncodingException e) {
+//                e.printStackTrace();
+//            }
+//        });
     }
 
     private void navigationDrawer() {
@@ -181,11 +181,7 @@ public class MyHomeActivity extends AppCompatActivity implements NavigationView.
                 finish();
                 break;
             case R.id.whatsapp:
-                try {
-                    whatsApp();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+                contactUs();
                 break;
             case R.id.nav_privacy:
                 startActivity(new Intent(getApplicationContext(), PrivacyPolicy.class));
@@ -203,21 +199,20 @@ public class MyHomeActivity extends AppCompatActivity implements NavigationView.
         }
         return true;
     }
+    private void contactUs() {
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setPackage("com.google.android.gm");
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"myexpertteam11@gmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, "Hello");
+        i.putExtra(Intent.EXTRA_TEXT, "I need some help regarding ");
+        try {
+            startActivity(Intent.createChooser(i, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MyHomeActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
 
-//    private void contactUs() {
-//        Intent i = new Intent(Intent.ACTION_SEND);
-//        i.setPackage("com.google.android.gm");
-//        i.setType("message/rfc822");
-//        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"help.dreamteam11@gmail.com"});
-//        i.putExtra(Intent.EXTRA_SUBJECT, "Hello");
-//        i.putExtra(Intent.EXTRA_TEXT, "I need some help regarding ");
-//        try {
-//            startActivity(Intent.createChooser(i, "Send mail..."));
-//        } catch (ActivityNotFoundException ex) {
-//            Toast.makeText(MyHomeActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
+    }
 
 
     private void shareApp() {
@@ -319,7 +314,6 @@ public class MyHomeActivity extends AppCompatActivity implements NavigationView.
         if (count == 4) {
             AdsViewModel adsViewModel = new AdsViewModel(this,binding.adView);
             getLifecycle().addObserver(adsViewModel);
-
             viewPager.setAdapter(sectionsPagerAdapter);
             TabLayout tabs = binding.tabs;
             tabs.setupWithViewPager(viewPager);

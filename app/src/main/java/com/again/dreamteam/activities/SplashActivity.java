@@ -97,7 +97,7 @@ public class SplashActivity extends AppCompatActivity {
         binding.tvNotConnected.setVisibility(View.GONE);
         binding.lottie.setVisibility(View.VISIBLE);
         binding.img.setVisibility(View.VISIBLE);
-        binding.imageView3.setVisibility(View.VISIBLE);
+//        binding.imageView3.setVisibility(View.VISIBLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.container.setBackgroundColor(getColor(R.color.red));
         }
@@ -115,7 +115,7 @@ public class SplashActivity extends AppCompatActivity {
         binding.tvNotConnected.setVisibility(View.VISIBLE);
         binding.lottie.setVisibility(View.GONE);
         binding.img.setVisibility(View.GONE);
-        binding.imageView3.setVisibility(View.GONE);
+//        binding.imageView3.setVisibility(View.GONE);
         binding.container.setBackgroundColor(Color.BLACK);
     }
 

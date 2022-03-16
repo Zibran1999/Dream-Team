@@ -48,6 +48,7 @@ public class MyApp extends Application {
     }
 
     public static void showInterstitialAd(Activity context) {
+
         String id = Paper.book().read(Prevalent.openAppAds);
         IronSource.init(context, id);
         IronSource.loadInterstitial();
@@ -126,14 +127,14 @@ public class MyApp extends Application {
     private void fetchAds() {
 
         apiInterface = WebServices.getInterface();
-        Call<AdsModelList> call = apiInterface.fetchAds("Prime Team");
+        Call<AdsModelList> call = apiInterface.fetchAds("Dream Team");
         call.enqueue(new Callback<AdsModelList>() {
             @Override
             public void onResponse(@NonNull Call<AdsModelList> call, @NonNull Response<AdsModelList> response) {
                 if (response.isSuccessful()) {
                     if (Objects.requireNonNull(response.body()).getData() != null) {
                         for (AdsModel ads : response.body().getData()) {
-                            Log.d("admobAdId", ads.getBanner() + " " + ads.getInterstitial() + " " + ads.getNativeADs());
+                            Log.d("admobAdId", ads.getBanner() + " " + ads.getInterstitial() + " " + ads.getAppOpen());
                             Paper.book().write(Prevalent.bannerAds, ads.getBanner().trim());
                             Paper.book().write(Prevalent.interstitialAds, ads.getInterstitial().trim());
                             Paper.book().write(Prevalent.nativeAds, ads.getNativeADs().trim());

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dream Team 11</string>
+    <string name="app_name">Dream Team</string>
     <string name="title_activity_index">IndexActivity</string>
     <string name="title_activity_match_detail">MatchDetailActivity</string>
     <string name="tab_text_1">CRICKET</string>

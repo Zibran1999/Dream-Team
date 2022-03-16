@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ANDROID PROJECTS/AgainDreamTeam11/app/src/main/res/layout/activity_splash.xml" value="0.19895833333333332" />
+        <entry key="..\:/ANDROID PROJECTS/AgainDreamTeam11/app/src/main/res/layout/activity_welcome.xml" value="0.25" />
+        <entry key="..\:/ANDROID PROJECTS/AgainDreamTeam11/app/src/main/res/layout/fragment_match_details.xml" value="0.19589743589743588" />
+        <entry key="..\:/ANDROID PROJECTS/AgainDreamTeam11/app/src/main/res/layout/fragment_my_home.xml" value="0.19895833333333332" />
+        <entry key="..\:/ANDROID PROJECTS/AgainDreamTeam11/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.132" />
         <entry key="..\:/Android Applications/Dream-Team/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.143" />
         <entry key="..\:/Android Applications/Dream-Team/app/src/main/res/drawable/ic_menu.xml" value="0.143" />
         <entry key="..\:/Android Applications/Dream-Team/app/src/main/res/drawable/ic_privacy_tip.xml" value="0.143" />
@@ -35,7 +40,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

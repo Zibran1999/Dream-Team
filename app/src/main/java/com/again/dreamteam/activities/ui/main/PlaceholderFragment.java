@@ -29,6 +29,7 @@ import com.again.dreamteam.models.FootballDataModels.FootBallData;
 import com.again.dreamteam.models.MatchDetailModels.Datum;
 import com.again.dreamteam.models.MatchDetailModels.MatchViewModel;
 import com.again.dreamteam.models.MatchNewsModels.NewsDatum;
+import com.again.dreamteam.utils.MyApp;
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -96,21 +97,25 @@ public class PlaceholderFragment extends Fragment {
 //        getLifecycle().addObserver(adsViewModel);
 
         if (index == 1) {
+            MyApp.showAdxBannerAd(requireActivity(),binding.adView);
 
             lottieAnimationView.setAnimation(R.raw.loding_dot);
             lottieAnimationView.playAnimation();
             swipeRefreshLayout.setOnRefreshListener(() -> {
+                MyApp.showAdxBannerAd(requireActivity(),binding.adView);
                 setMatchData(root.getContext());
                 swipeRefreshLayout.setRefreshing(false);
             });
             setMatchData(root.getContext());
 
         } else if (index == 2) {
+            MyApp.showAdxBannerAd(requireActivity(),binding.adView);
 
             lottieAnimationView.setAnimation(R.raw.loding_dot);
             lottieAnimationView.playAnimation();
             swipeRefreshLayout.setOnRefreshListener(() -> {
                 setNewsData(root.getContext());
+                MyApp.showAdxBannerAd(requireActivity(),binding.adView);
 
                 swipeRefreshLayout.setRefreshing(false);
             });
@@ -119,9 +124,12 @@ public class PlaceholderFragment extends Fragment {
         } else if (index == 3) {
             lottieAnimationView.setAnimation(R.raw.loding_dot);
             lottieAnimationView.playAnimation();
+            MyApp.showAdxBannerAd(requireActivity(),binding.adView);
 
             swipeRefreshLayout.setOnRefreshListener(() -> {
                 setFootBallData(root.getContext());
+                MyApp.showAdxBannerAd(requireActivity(),binding.adView);
+
                 swipeRefreshLayout.setRefreshing(false);
 
             });

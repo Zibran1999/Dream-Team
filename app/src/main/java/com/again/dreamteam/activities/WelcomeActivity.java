@@ -54,7 +54,6 @@ public class WelcomeActivity extends AppCompatActivity {
         startBtn.setOnClickListener(v -> {
             binding.lottieBall.setVisibility(View.VISIBLE);
             MyApp.showInterstitialAd(this);
-
             new Handler().postDelayed(() -> {
                 Intent intent = new Intent(getApplicationContext(), MyHomeActivity.class);
                 startActivity(intent);
